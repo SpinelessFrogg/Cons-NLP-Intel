@@ -38,13 +38,13 @@ This pipeline uses [Ollama](https://ollama.com) for local model inference so dat
 ### 2. Pull the Required Model
 Once the Ollama service/app is running, pull the model configured for the pipeline:
 ```bash
-ollama pull <your-model-name>
+ollama pull llama3.1
 ```
 *(Optional)* If migrating from another machine, copy the `models/` directory (`~/.ollama/models` or `/usr/share/ollama/.ollama/models` on Linux; `%USERPROFILE%\.ollama\models` on Windows) while Ollama is stopped, then run `ollama list` to verify.
 
 ### 3. Run the Model
 ```bash
-ollama run <your-model-name> "Reply with OK"
+ollama run llama3.1 "Reply with OK"
 ```
 
 ### 4. Verify GPU Acceleration (Optional)
@@ -61,14 +61,6 @@ You can override defaults using environment variables before running `pipeline.p
 | `OLLAMA_HOST` | `http://localhost:11434` | Ollama server URL (useful if running on another host/port) |
 | `OLLAMA_MODEL` | `<default-model>` | Model tag to use for inference |
 | `OLLAMA_TIMEOUT` | `60` | Request timeout in seconds |
-
-### Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-### Environment Variables
 
 Set your LegiScan API key as an environment variable before running the pipeline:
 
@@ -88,6 +80,11 @@ $env:LEGISCAN_API_KEY="your_legiscan_api_key_here"
 Optional: Set a HuggingFace Token to silence some errors. Name does not matter.
 ```bash
 set HF_TOKEN=your_token_here
+```
+### Installation
+
+```bash
+pip install -r requirements.txt
 ```
 
 ### Run the Pipeline
