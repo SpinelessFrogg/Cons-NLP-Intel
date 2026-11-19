@@ -53,7 +53,7 @@ def extract_policy_metadata(df, host=DEFAULT_HOST, model=DEFAULT_MODEL, timeout=
         )
         try:
             response = client.chat(
-                model="llama3.1",
+                model=model,
                 messages=[{"role": "user", "content": prompt}],
                 format=schema,
                 options={
